@@ -7,10 +7,9 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
-import ProfilePage from './components/ProfilePage';
+import Counter from './components/Counter';
 import UserContext from './UserContext';
-//import UserInfo from './components/UserInfo';
-
+import ProfilePage from './components/ProfilePage';
 
 
 
@@ -48,9 +47,17 @@ function App() {
         <Footer />
         <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
         <UserProfile name="Bob" age="30" bio="Enjoys coding and traveling" />
+        <h1>Simple Counter Application</h1>
+        {/* Use the Counter component */}
+        <Counter />
+        <div>
+          <p>Name: {userData.name}</p>
+          <p>Email: {userData.email}</p>
+        </div>
         <UserContext.Provider value={userData}>
           <ProfilePage />
         </UserContext.Provider>
+        
       </div>
     
     </>
