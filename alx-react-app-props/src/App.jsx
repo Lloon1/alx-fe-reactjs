@@ -9,12 +9,15 @@ import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import ProfilePage from './components/ProfilePage';
 import UserContext from './UserContext';
-import UserInfo from './components/UserInfo';
+//import UserInfo from './components/UserInfo';
+
 
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+  
 
   return (
     <>
@@ -45,12 +48,9 @@ function App() {
         <Footer />
         <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
         <UserProfile name="Bob" age="30" bio="Enjoys coding and traveling" />
-        <UserContext.Provider>
-          <UserInfo/>
+        <UserContext.Provider value={userData}>
           <ProfilePage />
         </UserContext.Provider>
-        
-        
       </div>
     
     </>
