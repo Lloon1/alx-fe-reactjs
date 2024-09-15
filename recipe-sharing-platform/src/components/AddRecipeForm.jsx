@@ -7,10 +7,8 @@ const [ingredients, setIngredients] = useState('');
 const [steps, setSteps] = useState('');
 const [errors, setErrors] = useState({ title: '', ingredients: '', steps: '' });
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Simple front-end validation
+  // Validation function
+const validate = () => {
     let valid = true;
     let newErrors = { title: '', ingredients: '', steps: '' };
 
@@ -28,10 +26,17 @@ const handleSubmit = (e) => {
     }
 
     setErrors(newErrors);
+    return valid;
+};
 
-    if (valid) {
-      // Handle form submission logic here
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Use the validate function
+    if (validate()) {
+      // Handle form submission
     console.log({ title, ingredients, steps });
+
       // Clear the form
     setTitle('');
     setIngredients('');
